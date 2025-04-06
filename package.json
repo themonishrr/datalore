@@ -1,0 +1,34 @@
+{
+  "name": "sympo_website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
+    "@tsparticles/react": "^3.0.0",
+    "framer-motion": "^10.12.8",
+    "gsap": "^3.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-router-dom": "^6.11.1",
+    "react-spring": "^9.7.5",
+    "three": "^0.174.0",
+    "tsparticles": "^3.8.1",
+    "vanta": "^0.5.24"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^6.2.3"
+  }
+}

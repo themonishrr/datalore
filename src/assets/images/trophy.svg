@@ -1,0 +1,33 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trophyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BA68C8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <!-- Trophy Base -->
+    <path d="M60 180h80c5.523 0 10-4.477 10-10v-20H50v20c0 5.523 4.477 10 10 10z" fill="url(#trophyGradient)"/>
+    <!-- Trophy Body -->
+    <path d="M50 60v90h100V60c0-22.091-17.909-40-40-40H90c-22.091 0-40 17.909-40 40z" fill="url(#trophyGradient)" opacity="0.9"/>
+    <!-- Trophy Handles -->
+    <path d="M150 70c16.569 0 30-13.431 30-30 0-5.523-4.477-10-10-10h-20v30c0 5.523 4.477 10 10 10zM50 70c-16.569 0-30-13.431-30-30 0-5.523 4.477-10 10-10h20v30c0 5.523-4.477 10-10 10z" fill="url(#trophyGradient)" opacity="0.8"/>
+    <!-- Sparkles -->
+    <circle cx="100" cy="50" r="5" fill="white" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="80" r="4" fill="white" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="70" r="4" fill="white" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

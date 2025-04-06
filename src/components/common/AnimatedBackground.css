@@ -1,0 +1,52 @@
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.animated-bg::before,
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  width: 150vmax;
+  height: 150vmax;
+  background: rgba(156, 39, 176, 0.4);
+  animation: move 15s linear infinite;
+  transform-origin: center;
+}
+
+.animated-bg::before {
+  background: rgba(255, 19, 97, 0.4);
+  animation-direction: alternate;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    border-radius: 35%;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+    border-radius: 45%;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+    border-radius: 35%;
+  }
+}
+
+.animated-bg::before {
+  left: 50%;
+  top: 50%;
+}
+
+.animated-bg::after {
+  left: 50%;
+  top: 50%;
+  animation-delay: -5s;
+}
