@@ -141,7 +141,8 @@ const ContactAndFAQ = () => {
     {
       icon: <Phone sx={{ fontSize: 40, color: 'primary.main' }} />,
       title: 'Phone',
-      details: '+91 44 2235 7080',
+      details: 'Arul Kumaran: +91 8754948708\nAbhijit: +91 7358208027\nAkshaya: +91 8925266186',
+      multiline: true,
     },
     {
       icon: <Email sx={{ fontSize: 40, color: 'primary.main' }} />,
@@ -428,10 +429,21 @@ const ContactAndFAQ = () => {
                 }}>
                   {info.icon}
                   <Box>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontSize: { xs: '1.4rem', sm: '1.5rem', md: '1.6rem' },
+                      fontWeight: 600,
+                      color: 'primary.main'
+                    }}>
                       {info.title}
                     </Typography>
-                    <Typography variant="body1" color="text.secondary">
+                    <Typography 
+                      variant="body1" 
+                      color="text.secondary"
+                      sx={{
+                        whiteSpace: 'pre-line',
+                        lineHeight: 1.8
+                      }}
+                    >
                       {info.details}
                     </Typography>
                   </Box>

@@ -263,7 +263,7 @@ const About = () => {
                       }}
                     />
                     <Typography 
-                      variant="h5" 
+                      variant="h4" 
                       align="center" 
                       gutterBottom
                       sx={{
@@ -271,6 +271,7 @@ const About = () => {
                         background: 'linear-gradient(135deg, #fff 0%, #9C27B0 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
+                        fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' }
                       }}
                     >
                       {coordinator.name}

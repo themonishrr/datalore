@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { createBrowserRouter, RouterProvider, Outlet, Navigate } from 'react-router-dom';
+import TransitionLayout from './components/layout/TransitionLayout';
 import darkTheme from './styles/theme';
 import AnimatedBackground from './components/common/AnimatedBackground';
 
@@ -43,7 +44,9 @@ const RootLayout = () => (
       <ScrollToTop />
       <Navbar />
       <Box component="main" sx={{ flexGrow: 1, overflowY: 'auto', position: 'relative' }}>
-        <Outlet />
+        <TransitionLayout>
+          <Outlet />
+        </TransitionLayout>
       </Box>
       <Footer />
     </Box>

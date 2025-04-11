@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Grid, 
-  Paper, 
-  Button, 
-  Card, 
-  CardContent, 
+import { Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  Button,
+  Card,
+  CardContent,
   CardMedia,
   CardActions,
   Divider,
   Avatar,
   Chip,
   useMediaQuery,
-  useTheme
+  useTheme,
+  Modal,
+  IconButton
 } from '@mui/material';
 import GradientHeading from '../components/common/GradientHeading';
 import '../styles/fonts.css';
@@ -29,7 +30,7 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CodeIcon from '@mui/icons-material/Code';
 import CountdownTimer from '../components/common/CountdownTimer';
 import { DEFAULT_PROFILE_IMAGE } from '../constants/images';
-import { AccessTime, LocationOn, Group, EmojiEvents, WorkspacePremium } from '@mui/icons-material';
+import { AccessTime, LocationOn, Group, EmojiEvents, WorkspacePremium, ArrowBack } from '@mui/icons-material';
 import trophyIcon from '../assets/images/trophy-icon.svg';
 
 const Home = () => {
@@ -38,12 +39,24 @@ const Home = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  
+  const handleOpenModal = (event) => {
+    setSelectedEvent(event);
+    setOpenModal(true);
+  };
+  
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   const prizePool = {
     total: "₹20,000+",
     breakdown: [
-      { position: "First Prize", amount: "₹7,000", icon: EmojiEvents },
-      { position: "Second Prize", amount: "₹5,000", icon: EmojiEvents }
+      { position: "First Prize Pool", amount: "₹7,000", icon: EmojiEvents },
+      { position: "Second Prize Pool", amount: "₹5,000", icon: EmojiEvents }
     ],
     perks: [
       "Merit Certificates for Winners",
@@ -57,50 +70,123 @@ const Home = () => {
     {
       id: 1,
       title: 'Prompt Craft',
-      date: '2025',
+      category: 'Competition',
+      image: DEFAULT_PROFILE_IMAGE,
       time: '2.5 hours',
-      venue: 'Competition Arena',
-      capacity: 50
+      venue: 'Tech Lounge',
+      capacity: 50,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      }
     },
     {
       id: 2,
-      title: 'Design Sphere',
-      date: '2025',
-      time: '2.5 hours',
-      venue: 'Design Lab',
-      capacity: 50
+      title: 'UXplore',
+      category: 'Design Competition',
+      image: DEFAULT_PROFILE_IMAGE,
+      time: '2 hours',
+      venue: 'Idea Lab (KFR02)',
+      capacity: 30,
+      slot: 'II',
+      actualTime: '12:10 - 2:20',
+      teamSize: '1-2',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      }
     },
     {
       id: 3,
       title: 'Pitch or Pass',
-      date: '2025',
-      time: '1.5 hours',
-      venue: 'Presentation Hall',
-      capacity: 50
+      category: 'Investment Challenge',
+      image: DEFAULT_PROFILE_IMAGE,
+      time: '3 hours',
+      venue: 'Conference Hall',
+      capacity: 30,
+      slot: 'I',
+      actualTime: '9:45 - 12:45',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      }
     },
     {
       id: 4,
-      title: 'Case Study 2025: The Quest for Innovation',
-      date: '2025',
+      title: 'The Innovation Quest',
+      category: 'Case Analysis',
+      image: DEFAULT_PROFILE_IMAGE,
       time: '2 hours',
-      venue: 'Innovation Hub',
-      capacity: 40
+      venue: 'Purple Hall',
+      capacity: 45,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      }
     },
     {
       id: 5,
       title: 'Insight',
-      date: '2025',
+      category: 'Project Showcase',
+      image: DEFAULT_PROFILE_IMAGE,
       time: '2 hours',
-      venue: 'Presentation Hall',
-      capacity: 50
+      venue: 'Main Seminar Hall',
+      capacity: 75,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹2,500',
+        second: '₹1,000'
+      }
     },
     {
       id: 6,
-      title: 'Code Heist: Hack The Vault',
-      date: '2025',
+      title: 'Code Heist',
+      category: 'Coding Challenge',
+      image: DEFAULT_PROFILE_IMAGE,
       time: '2 hours',
-      venue: 'Coding Arena',
-      capacity: 60
+      venue: 'KFR02',
+      capacity: 30,
+      slot: 'I',
+      actualTime: '9:45 - 11:45',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      }
+    },
+    {
+      id: 7,
+      title: 'Papervez',
+      category: 'Paper Presentation',
+      image: DEFAULT_PROFILE_IMAGE,
+      time: '2 hours',
+      venue: 'Purple Hall',
+      capacity: 45,
+      slot: 'I',
+      actualTime: '9:45 - 11:45',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹2,500',
+        second: '₹1,000'
+      }
+    },
+    {
+      id: 8,
+      title: 'Workshop',
+      category: 'Technical Workshop',
+      image: DEFAULT_PROFILE_IMAGE,
+      time: '2 hours',
+      venue: 'Main Seminar Hall',
+      capacity: 100,
+      slot: 'I',
+      actualTime: '9:45 - 11:45'
     }
   ];
   const guest = {
@@ -118,42 +204,67 @@ const Home = () => {
       scale: 1,
       transition: { 
         type: "spring",
-        stiffness: 200,
-        damping: 15,
-        mass: 0.5,
+        stiffness: 20,
         duration: 0.3
-      } 
-    },
-    exit: { 
-      opacity: 0, 
-      x: -20, 
-      scale: 0.95,
-      transition: { 
-        type: "spring",
-        stiffness: 300,
-        damping: 20,
-        duration: 0.2
-      } 
+      }
     }
   };
+  
 
   return (
     <Container maxWidth="lg">
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        sx={{
-          minHeight: 'calc(100vh - 64px)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          py: { xs: 4, md: 8 }
-        }}
-      >
+                <Box sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  mb: 3,
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '1px',
+                    background: 'linear-gradient(90deg, transparent, rgba(156, 39, 176, 0.3), transparent)'
+                  }
+                }}>
+                  <IconButton 
+                    onClick={handleCloseModal}
+                    sx={{ 
+                      mr: 2,
+                      color: '#BA68C8',
+                      backgroundColor: 'rgba(156, 39, 176, 0.1)',
+                      '&:hover': {
+                        background: 'rgba(156, 39, 176, 0.2)',
+                        transform: 'scale(1.1)',
+                        boxShadow: '0 0 15px rgba(186, 104, 200, 0.3)'
+                      },
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                    aria-label="Back"
+                  >
+                    <ArrowBack />
+                  </IconButton>
+                  <Typography variant="h4" >
+                    </Typography> 
+                    </Box>
+    
+
+  <Box
+    component={motion.div}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    sx={{
+      minHeight: 'calc(100vh - 64px)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      py: { xs: 4, md: 8 }
+    }}
+  >
         <GradientHeading variant="h2" component="h1">
           Welcome to Datalore '25
         </GradientHeading>
@@ -187,7 +298,7 @@ const Home = () => {
               const button = e.currentTarget;
               const buttonRect = button.getBoundingClientRect();
               
-              // Create overlay with enhanced animation
+              // Create overlay element
               const overlay = document.createElement('div');
               overlay.style.position = 'fixed';
               overlay.style.top = `${buttonRect.top}px`;
@@ -202,7 +313,7 @@ const Home = () => {
               overlay.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
               document.body.appendChild(overlay);
 
-              // Add keyframes for gradient animation
+              // Add gradient animation keyframes
               const style = document.createElement('style');
               style.textContent = `
                 @keyframes gradientShift {
@@ -213,7 +324,7 @@ const Home = () => {
               `;
               document.head.appendChild(style);
 
-              // Enhanced animation sequence
+              // Animate overlay to full screen
               requestAnimationFrame(() => {
                 overlay.style.transform = 'scale(60)';
                 overlay.style.borderRadius = '0';
@@ -223,11 +334,12 @@ const Home = () => {
                 overlay.style.height = '100vh';
               });
 
-              // Navigate after animation with smooth timing
+              // Navigate after animation completes
               setTimeout(() => {
                 window.location.href = '/register';
               }, 800);
             }}
+            aria-label="Navigate to registration page"
             variant="contained"
             size="large"
             sx={{
@@ -488,25 +600,7 @@ const Home = () => {
           width: '100%',
           position: 'relative'
         }}>
-          <motion.div
-            style={{
-              display: 'flex',
-              gap: '48px',
-              padding: '24px 0',
-              position: 'relative'
-            }}
-            animate={{
-              x: ['0%', '-50%'],
-              transition: {
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration: events.length * 5,
-                  ease: 'linear'
-                }
-              }
-            }}
-          >
+          <div style={{ display: 'flex', gap: '48px', padding: '24px 0', position: 'relative', overflowX: 'auto' }}>
             {[...events, ...events].map((event, index) => (
               <Box
                 key={`${event.id}-${index}`}
@@ -527,6 +621,7 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <Card
+                    onClick={() => handleOpenModal(event)}
                     sx={{
                       height: '100%',
                       background: 'linear-gradient(145deg, rgba(18, 18, 18, 0.98) 0%, rgba(9, 9, 9, 0.95) 100%)',
@@ -633,7 +728,7 @@ const Home = () => {
                 </motion.div>
               </Box>
             ))}
-          </motion.div>
+          </div>
         </Box>
       </Box>
 
@@ -811,6 +906,7 @@ const Home = () => {
     </Container>
   );
 };
+
 
 export default Home;
                   

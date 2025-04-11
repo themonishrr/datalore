@@ -36,8 +36,14 @@ const Events = () => {
       category: 'Competition',
       image: DEFAULT_PROFILE_IMAGE,
       time: '2.5 hours',
-      venue: 'Competition Arena',
+      venue: 'Tech Lounge',
       capacity: 50,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      },
       description: 'Welcome to Prompt Craft 2025, an immersive competition designed to challenge participants in mastering the art of prompt engineering! Over two intense rounds, participants will demonstrate their expertise in crafting precise, creative, and optimized prompts for AI models. Round 1 focuses on basic prompt engineering techniques and optimization, while Round 2 challenges participants with complex scenarios requiring advanced prompt chaining and context manipulation. Winners will be judged on prompt effectiveness, creativity, and practical applicability.',
       highlights: [
         'Two challenging rounds with increasing complexity',
@@ -54,12 +60,19 @@ const Events = () => {
     },
     {
       id: 2,
-      title: 'Design Sphere',
+      title: 'UXplore',
       category: 'Design Competition',
       image: DEFAULT_PROFILE_IMAGE,
-      time: '2.5 hours',
-      venue: 'Design Lab',
-      capacity: 50,
+      time: '2 hours',
+      venue: 'Idea Lab (KFR02)',
+      capacity: 30,
+      slot: 'II',
+      actualTime: '12:10 - 2:20',
+      teamSize: '1-2',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      },
       description: 'Design Sphere is an intensive UI/UX design competition that challenges participants to create innovative, user-centric digital experiences. In Round 1, teams will redesign a given interface focusing on usability and aesthetic appeal. Round 2 presents a complex design challenge where participants must create a complete design system including wireframes, prototypes, and user journey maps. The competition emphasizes modern design principles, accessibility standards, and real-world applicability.',
       highlights: [
         'Comprehensive UI/UX design challenges',
@@ -79,9 +92,16 @@ const Events = () => {
       title: 'Pitch or Pass',
       category: 'Investment Challenge',
       image: DEFAULT_PROFILE_IMAGE,
-      time: '1.5 hours',
-      venue: 'Presentation Hall',
-      capacity: 50,
+      time: '3 hours',
+      venue: 'Conference Hall',
+      capacity: 30,
+      slot: 'I',
+      actualTime: '9:45 - 12:45',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      },
       description: 'Pitch or Pass is an exhilarating investment challenge where participants step into the shoes of venture capitalists. Teams will receive comprehensive financial datasets, market analysis reports, and company profiles. They must conduct thorough analysis, develop investment strategies, and create compelling investment proposals. The final round involves presenting their investment thesis to a panel of experienced investors and defending their decisions through detailed Q&A sessions.',
       highlights: [
         'Real-world financial data analysis',
@@ -98,12 +118,19 @@ const Events = () => {
     },
     {
       id: 4,
-      title: 'Case Study 2025: The Quest for Innovation',
+      title: 'The Innovation Quest',
       category: 'Case Analysis',
       image: DEFAULT_PROFILE_IMAGE,
       time: '2 hours',
-      venue: 'Innovation Hub',
-      capacity: 40,
+      venue: 'Purple Hall',
+      capacity: 45,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      },
       description: 'The Quest for Innovation is an intensive case study competition that challenges participants to solve real-world business and technology problems. Teams will receive detailed case studies from leading companies, requiring them to analyze complex scenarios, identify key challenges, and propose innovative solutions. The competition tests participants\'s analytical thinking, problem-solving abilities, and strategic planning skills.',
       highlights: [
         'Real industry case analysis',
@@ -124,8 +151,15 @@ const Events = () => {
       category: 'Project Showcase',
       image: DEFAULT_PROFILE_IMAGE,
       time: '2 hours',
-      venue: 'Presentation Hall',
-      capacity: 50,
+      venue: 'Main Seminar Hall',
+      capacity: 75,
+      slot: 'II',
+      actualTime: '12:20 - 2:20',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹2,500',
+        second: '₹1,000'
+      },
       description: 'Insight is a premier project showcase event where participants present their innovative AI and Data Science projects. This platform allows students to demonstrate their technical expertise, creativity, and problem-solving abilities through practical applications. Projects will be evaluated based on innovation, technical complexity, practical impact, and presentation quality. Selected projects will receive mentorship opportunities and potential industry collaboration prospects.',
       highlights: [
         'Live project demonstrations',
@@ -142,13 +176,19 @@ const Events = () => {
     },
     {
       id: 6,
-      title: 'Code Heist: Hack The Vault',
+      title: 'Code Heist',
       category: 'Coding Challenge',
       image: DEFAULT_PROFILE_IMAGE,
       date: '2025',
       time: '2 hours',
-      venue: 'Coding Arena',
-      capacity: 60,
+      venue: 'KFR02',
+      capacity: 30,
+      slot: 'I',
+      actualTime: '9:45 - 11:45',
+      prizePool: {
+        first: '₹1,500',
+        second: '₹1,000'
+      },
       description: 'Code Heist is an immersive coding challenge that puts participants in the role of ethical hackers. Through three progressively challenging rounds, participants must navigate a simulated high-security system, combining coding skills with strategic thinking. Round 1 focuses on basic system penetration, Round 2 involves advanced encryption challenges, and the final round tests participants\' ability to execute a complete system infiltration while maintaining stealth.',
       highlights: [
         'Progressive difficulty levels',
@@ -161,6 +201,61 @@ const Events = () => {
       coordinators: {
         staff: ['Ms Selvarani'],
         students: ['R Sai Narayanan', 'M Thofiq Gani']
+      }
+    },
+    {
+      id: 7,
+      title: 'Papervez',
+      category: 'Paper Presentation',
+      image: DEFAULT_PROFILE_IMAGE,
+      date: '2025',
+      time: '2 hours',
+      venue: 'Purple Hall',
+      capacity: 45,
+      slot: 'I',
+      actualTime: '9:45 - 11:45',
+      teamSize: '1-3',
+      prizePool: {
+        first: '₹2,500',
+        second: '₹1,000'
+      },
+      description: 'Papervez is an academic paper presentation competition where teams of 1-3 members present their research work in emerging technologies. Participants will showcase their research findings, methodologies, and conclusions through professional presentations.',
+      highlights: [
+        'Research presentation',
+        'Technical paper writing',
+        'Academic discussion',
+        'Professional feedback',
+        'Publication opportunities',
+        'Networking with researchers'
+      ],
+      coordinators: {
+        staff: ['Dr. Research Coordinator'],
+        students: ['Research Lead 1', 'Research Lead 2']
+      }
+    },
+    {
+      id: 8,
+      title: 'Workshop',
+      category: 'Technical Workshop',
+      image: DEFAULT_PROFILE_IMAGE,
+      date: '2025',
+      time: '2 hours',
+      venue: 'Main Seminar Hall',
+      capacity: 100,
+      slot: 'I',
+      actualTime: '9:45 - 11:45',
+      description: 'A comprehensive technical workshop focusing on cutting-edge technologies and industry practices. Participants will gain hands-on experience with the latest tools and frameworks while learning from industry experts.',
+      highlights: [
+        'Hands-on training',
+        'Industry expert sessions',
+        'Interactive learning',
+        'Practical exercises',
+        'Take-home resources',
+        'Certificate of completion'
+      ],
+      coordinators: {
+        staff: ['Workshop Coordinator'],
+        students: ['Workshop Lead 1', 'Workshop Lead 2']
       }
     }
   ];
@@ -332,9 +427,14 @@ const Events = () => {
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, mt: 2.5 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                       <AccessTime sx={{ color: '#BA68C8', fontSize: '1.4rem' }} />
-                      <Typography variant="body1" sx={{ color: '#E0E0E0', fontSize: { xs: '1.1rem', md: '1.2rem' }, fontWeight: 500 }}>
-                        {event.time}
-                      </Typography>
+                      <Box>
+                        <Typography variant="body1" sx={{ color: '#E0E0E0', fontSize: { xs: '1.1rem', md: '1.2rem' }, fontWeight: 500 }}>
+                          Duration: {event.time}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: '#BA68C8', fontSize: { xs: '0.9rem', md: '1rem' }, fontWeight: 500 }}>
+                          Time: {event.actualTime} (Slot {event.slot})
+                        </Typography>
+                      </Box>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                       <LocationOn sx={{ color: '#BA68C8', fontSize: '1.4rem' }} />

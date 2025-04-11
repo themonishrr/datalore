@@ -8,7 +8,7 @@ const CountdownTimer = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   function calculateTimeLeft() {
-    const targetDate = new Date('2025-04-16T08:00:00');
+    const targetDate = new Date('2025-04-23T08:00:00');
     const difference = +targetDate - +new Date();
     let timeLeft = {};
 

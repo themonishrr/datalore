@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9C27B0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path d="M100 20 L160 50 L160 150 L100 180 L40 150 L40 50 Z" fill="none" stroke="url(#logoGradient)" stroke-width="4">
+    <animate attributeName="stroke-dasharray" from="1000 1000" to="0 1000" dur="2s" repeatCount="indefinite" />
+  </path>
+  <path d="M70 85 L130 85 M70 115 L130 115" stroke="url(#logoGradient)" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" from="60 60" to="0 60" dur="1.5s" repeatCount="indefinite" />
+  </path>
+</svg>

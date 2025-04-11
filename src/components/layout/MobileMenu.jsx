@@ -54,29 +54,45 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
           p: 2,
           borderBottom: '1px solid rgba(156, 39, 176, 0.2)'
         }}>
-          <Typography
-            variant="h6"
+          <Box
+            component="img"
+            src="/weblogo.png"
             sx={{
-              fontFamily: 'Orbitron, sans-serif',
-              fontSize: { xs: '1.2rem', sm: '1.4rem' },
-              fontWeight: 800,
-              background: 'linear-gradient(45deg, #fff 30%, #9C27B0 90%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              height: { xs: '30px', sm: '35px' },
+              transition: 'all 0.3s ease-in-out',
+              filter: 'brightness(1.1)',
+              '&:hover': {
+                transform: 'scale(1.05)'
+              }
             }}
-          >
-            DATALORE '25S
-          </Typography>
+            alt="DATALORE '25"
+          />
           <IconButton
             onClick={onClose}
             sx={{
               color: 'white',
+              background: 'rgba(156, 39, 176, 0.1)',
+              backdropFilter: 'blur(4px)',
+              border: '1px solid rgba(156, 39, 176, 0.2)',
+              borderRadius: '12px',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               '&:hover': {
-                backgroundColor: 'rgba(156, 39, 176, 0.1)',
+                background: 'rgba(156, 39, 176, 0.2)',
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 15px rgba(156, 39, 176, 0.3)'
+              },
+              '&:active': {
+                transform: 'scale(0.95)'
               }
             }}
           >
-            <CloseIcon />
+            <CloseIcon sx={{
+              transition: 'transform 0.3s ease',
+              transform: 'rotate(0deg)',
+              '&:hover': {
+                transform: 'rotate(90deg)'
+              }
+            }}/>
           </IconButton>
         </Box>
         

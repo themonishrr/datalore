@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import MobileMenu from './MobileMenu';
 import { useLocation } from 'react-router-dom';
 import dataloreImage from '/college logo.png';
+import dataloreLogoSvg from '/weblogo.png';
 
 const Navbar = () => {
   const location = useLocation();
@@ -107,35 +108,24 @@ const Navbar = () => {
             >
               {/* Logo */}
               <Box sx={{ display: 'flex', alignItems: 'center', mr: 'auto' }}>
-                <Typography
-                  variant="h6"
-                  component={RouterLink}
-                  to="/"
-                  sx={{
-                    fontFamily: 'orbiton, sans-serif',
-                    fontSize: { 
-                      xs: '1.2rem',
-                      sm: '1.4rem',
-                      md: scrolled ? '1.6rem' : '1.8rem',
-                      lg: scrolled ? '1.8rem' : '2rem'
-                    },
-                    fontWeight: 800,
-                    background: 'linear-gradient(45deg, #fff 30%, #9C27B0 90%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    textDecoration: 'none',
-                    letterSpacing: { xs: '0.5px', sm: '1px' },
-                    transition: 'all 0.3s ease-in-out',
-                    flexShrink: 0,
-                    '&:hover': {
-                      transform: 'scale(1.02)',
-                      background: 'linear-gradient(45deg, #9C27B0 30%, #fff 90%)',
-                      WebkitBackgroundClip: 'text',
-                    }
-                  }}
-                >
-                  DATALORE '25
-                </Typography>
+                <RouterLink to="/">
+                  <Box
+                    component="img"
+                    src={dataloreLogoSvg}
+                    alt="DATALORE Logo"
+                    sx={{
+                      height: { 
+                        xs: '30px',
+                        sm: '35px',
+                        md: scrolled ? '40px' : '45px'
+                      },
+                      transition: 'all 0.3s ease-in-out',
+                      '&:hover': {
+                        transform: 'scale(1.02)'
+                      }
+                    }}
+                  />
+                </RouterLink>
               </Box>
 
               {/* Desktop Navigation - Hidden on mobile */}
@@ -198,13 +188,18 @@ const Navbar = () => {
                 <Box
                   component="img"
                   src={dataloreImage}
-                  alt="DATALORE Logo"
+                  alt="College Logo"
                   sx={{
-                    height: { xs: '50px', sm: '50px', md: scrolled ? '50px' : '70px' },
-                    width: { xs: '130px', sm: '100px', md: scrolled ? '150px' : '170px' },
+                    height: { xs: '40px', sm: '45px', md: scrolled ? '50px' : '60px' },
+                    width: 'auto',
                     transition: 'all 0.3s ease-in-out',
-                    display: { xs: 'block', md: 'block' },
-                    ml: { xs: -19, sm: -4, md: -3 } // Increased negative margin to move left
+                    display: 'block',
+                    ml: { xs: 2, sm: 3, md: 4 },
+                    filter: 'brightness(0.95)',
+                    '&:hover': {
+                      filter: 'brightness(1.1)',
+                      transform: 'scale(1.02)'
+                    }
                   }}
                 />
               </RouterLink>
@@ -213,24 +208,36 @@ const Navbar = () => {
               <Box sx={{ 
                 display: { xs: 'flex', sm: 'flex', md: 'none' },
                 alignItems: 'center',
-                position: 'absolute',
-                right: 0
+                ml: 2,
+                order: 3
               }}>
-
                 <IconButton
                   onClick={() => setIsOpen(true)}
                   sx={{
                     color: 'white',
                     padding: { xs: '8px', sm: '12px' },
-                    marginLeft: 2,
+                    background: 'rgba(156, 39, 176, 0.1)',
+                    backdropFilter: 'blur(4px)',
+                    border: '1px solid rgba(156, 39, 176, 0.2)',
+                    borderRadius: '12px',
                     '&:hover': {
-                      backgroundColor: 'rgba(156, 39, 176, 0.1)',
-                      transform: 'scale(1.05)'
+                      background: 'rgba(156, 39, 176, 0.2)',
+                      transform: 'scale(1.05)',
+                      boxShadow: '0 0 15px rgba(156, 39, 176, 0.3)'
                     },
-                    transition: 'all 0.2s ease-in-out'
+                    '&:active': {
+                      transform: 'scale(0.95)'
+                    },
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                 >
-                  <MenuIcon sx={{ fontSize: { xs: '24px', sm: '28px' } }} />
+                  <MenuIcon 
+                    sx={{ 
+                      fontSize: { xs: '24px', sm: '28px' },
+                      transition: 'transform 0.3s ease',
+                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                    }} 
+                  />
                 </IconButton>
               </Box>
             </Toolbar>
